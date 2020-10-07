@@ -1,16 +1,17 @@
 import cv2
 import numpy as np
 
+''' References
+I used the skeleton from https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_colorspaces/py_colorspaces.html
+I also used this tutorial on finding contours: https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contours_begin/py_contours_begin.html
+I used my filter and edge detection code from a previous class's coding assignment
+'''
+
+# Constants
 HSV_MODE = False
-
-cap = cv2.VideoCapture("tracking_phone_medium.mov")
-
-#target_color = np.array([60, 40, 200], dtype=np.uint16)
-#target_color = np.array([60, 40, 200], dtype=np.uint16)
-target_color = np.array([186, 159, 69], dtype=np.uint16)
-
-error_range = 50
-
+cap = cv2.VideoCapture("tracking_raw.mov")
+target_color = np.array([60, 40, 200], dtype=np.uint16)
+error_range = 40
 lower_bound = target_color - error_range
 upper_bound = target_color + error_range
 
